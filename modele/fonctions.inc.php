@@ -281,6 +281,20 @@ function getInfoCompte($email){
 	die();
 	}
 }
+
+function calculerTotal($produits)
+{
+    $total = 0; // Initialiser le total à zéro
+
+    // Parcourir chaque produit
+    foreach ($produits as $produit) {
+        // Ajouter le prix du produit au total
+        $total += $produit['prix'];
+    }
+
+    // Retourner le total
+    return $total;
+}
 ?>
 
 

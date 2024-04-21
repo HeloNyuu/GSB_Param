@@ -206,4 +206,6 @@ include_once 'bd.inc.php';
  //        die();
 	// 	}
 	// }
+
+	
 ?>

@@ -116,18 +116,7 @@ background:#ccff11;
     height:205px;
     font: 1em "Trebuchet MS",Arial,sans-serif ;
 }
-.commande{
-	position : relative;
-    width:180px;
-	height : 250px;
-    float:left;
-    padding:10px;
-    margin : 10px;
-}
-.commande img{
-	position:absolute;
-	bottom:80px;
-}
+
 div.card{
     position : relative;
     width:180px;
@@ -317,4 +306,77 @@ div.imgCard{
 }
 .see-products-text {
     color: #333; /* Couleur de texte plus foncée (par exemple, noir) */
+}
+
+/* Conteneur des boutons */
+.actions {
+    display: flex; /* Aligner les éléments horizontalement */
+    align-items: center; /* Aligner verticalement les éléments */
+    margin-top: 20px; /* Marge en haut pour espacer des éléments au-dessus */
+}
+
+/* Style des boutons Vider */
+.vider .btn-vider {
+    text-decoration: none;
+    background-color: #3f65cc;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    width: 120px; /* Largeur fixe */
+}
+
+/* Style des boutons Commander */
+.commande .btn-commander {
+    text-decoration: none;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    width: 120px; /* Largeur fixe */
+    margin-left: 20px; /* Marge à gauche pour décaler le bouton */
+}
+
+/* Style au survol */
+.vider a:hover{
+	background-color: #45a1ec;
+}
+.commande a:hover {
+    background-color: #45a049;
+}
+
+.titre-panier {
+    background-color: #f2f2f2; /* Fond gris clair */
+    padding: 10px; /* Ajouter un espace autour du titre */
+    text-align: center; /* Centrer le texte */
+    margin-bottom: 20px; /* Marge en bas pour espacer du contenu suivant */
+}
+
+.titre-panier h2 {
+    margin: 0; /* Supprimer la marge par défaut */
+}
+
+.recap-commande {
+    border: 1px solid #ccc; /* Bordure grise */
+    padding: 20px; /* Espacement intérieur */
+    margin-top: 20px; /* Marge supérieure */
+    margin-right: 20px; /* Marge sur le côté droit */
+    width: 500px; /* Largeur augmentée */
+    float: right; /* Aligner à droite */
+	background-color: #e0e0e0;
+}
+
+.recap-commande h3 {
+    margin-top: 0; /* Supprimer la marge supérieure du titre */
+}
+
+.recap-produit {
+    margin-bottom: 5px; /* Espacement entre chaque produit */
+    display: flex; /* Aligner les éléments horizontalement */
+    justify-content: space-between; /* Espace entre les éléments */
+}
+
+.total {
+    margin-top: 10px; /* Marge supérieure pour le total */
+    display: flex; /* Aligner les éléments horizontalement */
+    justify-content: space-between; /* Espace entre les éléments */
 }
