@@ -15,12 +15,21 @@ switch($action)
 	{
 		$lesCategories = getLesCategories();
 		include("vues/v_categories.php");
-  		$categorie = $_REQUEST['categorie'];
+
+  		if ($_REQUEST['categorie']!='XX') {
+		
+		$categorie = $_REQUEST['categorie'];
   		$cat=getLesInfosCategorie($categorie);
   		echo '<h2> Produits de la catégorie '.$cat[1].'</h2>';
 		$lesProduits = getLesProduitsDeCategorie($categorie);
 		include("vues/v_produitsDeCategorie.php");
-		
+		}
+		else
+		{
+			
+		$lesProduits=getToutLesProduits();
+		include("vues/v_produits.php");
+		}
 		break;
 	}
 

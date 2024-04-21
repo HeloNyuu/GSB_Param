@@ -1,6 +1,9 @@
 
-<div id="produits">
 
+
+
+
+<div id="produits">
 
 <?php
 // parcours du tableau contenant les produits à afficher

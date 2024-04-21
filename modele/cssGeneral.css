@@ -97,7 +97,7 @@ padding:0 150px;
 		background: #ccff11 ;
 }
 
-#menu li a , #categories li a {
+#menu li a{
 		text-decoration:none;
 }
 #categories li {
@@ -162,6 +162,51 @@ div.imgCard{
     position:absolute;
     bottom:5px;
 }
-#cat{
-	list-style: none;
-}
+.category-container {
+	background-color: #f2f2f2;
+	padding: 20px;
+	border-left: 4px solid #ccc;
+	display: flex;
+	justify-content: space-between; /* aligner les éléments de manière égale sur la ligne */
+  }
+  
+  .category-wrapper {
+	flex: 1; /* faire en sorte que chaque conteneur occupe le même espace sur la ligne */
+  }
+  
+  #cat {
+	list-style-type: none; /* supprimer les puces de la liste */
+	padding: 1;
+	display: flex; /* afficher les éléments de la liste en ligne */
+
+  }
+  
+  #cat li {
+	margin-bottom: 10px; /* espace entre chaque élément de la liste */
+	border-bottom: 1px solid #ccc; /* trait fin entre les catégories */
+  }
+  
+  #cat li a {
+	text-decoration: none; /* supprimer la décoration du lien */
+	color: #333; /* couleur du texte */
+	padding: 10px; /* espacement autour des liens */
+  }
+  
+  #cat li a:hover {
+	background-color: #ddd; /* changer la couleur de fond au survol */
+  }
+  .back-button {
+	float: right; /* aligner le bouton à droite */
+	text-decoration: none;
+	padding: 10px 20px;
+	background-color: #4CAF50; /* couleur de fond du bouton */
+	color: white; /* couleur du texte */
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+  }
+  
+  .back-button:hover {
+	background-color: #45a049; /* couleur de fond du bouton au survol */
+	text-decoration: none;
+  }

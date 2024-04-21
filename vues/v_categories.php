@@ -1,4 +1,6 @@
-<ul id="cat">
+<div class="category-container">
+<div class="category-wrapper">
+<ul id="cat" >
 <?php
 foreach( $lesCategories as $uneCategorie) 
 {
@@ -13,5 +15,15 @@ foreach( $lesCategories as $uneCategorie)
 <?php
 }
 ?>
+
 </ul>
+</div>
+<?php if ($_REQUEST['categorie']!='XX') {
+?>
+<a class="back-button" href="index.php?uc=voirProduits&categorie=XX&action=voirProduits">Voir Tout<i class="fas fa-arrow-left"></i></a>
+
+<?php
+}
+?>
+</div>
 
