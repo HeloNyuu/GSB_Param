@@ -1,13 +1,58 @@
+<!-- Structure de la page d'accueil -->
 <div id="accueil">
 
-<h1 id="TitreAcc" class="acc">La société GsbPara,</h1>
 
-<h2 id="Titre2Acc" class="acc"> vous souhaite la bienvenue sur son site de vente en ligne ,</h2>
+    <!-- Section d'en-tête avec l'image d'arrière-plan -->
+<div class="hero-section">
+    <img src="images/accueil.jpg" alt="Image d'arrière-plan">
+    <div class="hero-text">
+        <h1>La société Gsb</h1>
+        <h2>Vous souhaite la bienvenue sur son site de vente en ligne</h2>
+        <p>De produits paramédicaux et bien-être à destination des particuliers.</p>
 
-<p id="TextAcc" class="acc">de produits paramédicaux et bien-être  </p>
+        <!-- Encadré blanc pour le texte "Voir nos produits" -->
+        <div class="see-products-box">
+            <a href="index.php?uc=voirProduits&categorie=XX&action=voirProduits" class="btn">Découvrir nos produits</a>
+        </div>
+    </div>
+</div>
 
-<p class="acc">à destination des particuliers.</p>
+    <!-- Section des catégories de produits -->
+<div class="product-categories-section">
+    <h2 class="acc">Découvrez nos catégories de produits</h2>
+    <div class="product-categories">
+        <!-- Catégorie 1 : Cheveux -->
+<div class="product-category">
+    <a href="index.php?uc=voirProduits&categorie=CH&action=voirProduits">
+        <img src="images/cheveux.jpg" alt="Image catégorie Cheveux">
+        <div class="category-info">
+            <h3>Cheveux</h3>
+            <p>Découvrez notre sélection de produits capillaires pour des cheveux en pleine santé.</p>
+        </div>
+    </a>
+</div>
 
-<p class="acc">Avec plus de 2000 produits paramédicaux à la vente, GsbPara vous propose à 
-un tarif compétitif un large panel de produits livré rapidement chez vous !</p>
+<!-- Catégorie 2 : Forme -->
+<div class="product-category">
+    <a href="index.php?uc=voirProduits&categorie=FO&action=voirProduits">
+        <img src="images/forme.jpg" alt="Image catégorie Forme">
+        <div class="category-info">
+            <h3>Forme</h3>
+            <p>Retrouvez notre gamme de produits pour rester en forme et plein d'énergie.</p>
+        </div>
+    </a>
+</div>
+
+<!-- Catégorie 3 : Protection Solaire -->
+<div class="product-category">
+    <a href="index.php?uc=voirProduits&categorie=PS&action=voirProduits">
+        <img src="images/soleil.jpg" alt="Image catégorie Protection Solaire">
+        <div class="category-info">
+            <h3>Protection Solaire</h3>
+            <p>Protégez votre peau des rayons nocifs du soleil avec nos produits de protection solaire.</p>
+        </div>
+    </a>
+</div>
+</div>
+
 </div>

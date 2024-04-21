@@ -1,15 +1,5 @@
 ﻿<?php
-/**
- * @file fonctions.inc.php
- * @author Marielle Jouin <jouin.marielle@gmail.com>
- * @version    2.0
- * @date juin 2021
- * @details contient les fonctions qui ne font pas accès aux données de la BD
 
- * regroupe les fonctions pour gérer le panier, et les erreurs de saisie dans le formulaire de commande
-
- * @package  GsbParam\util
-*/
 /**
  * Initialise le panier
  *
@@ -187,24 +177,60 @@ function getErreursSaisieCommande($nom,$rue,$ville,$cp,$mail)
 	return $lesErreurs;
 }
 
-
-function creationCompte($nom,$prenom,$email,$mot_de_passe)
-	{
-		try 
-		{
+function emailExiste($email)
+{
+    try 
+    {
+        // Connexion à la base de données
         $monPdo = connexionPDO();
-		$req = 'INSERT INTO client (nom,prenom,email,mot_de_passe) 
-		values $nom,$prenom,$email,$mot_de_passe';
-		$res = $monPdo->query($req);
-		$lesCommandes = $res->fetchAll();
-		return $lesCommandes;
-		}
-		catch (PDOException $e) 
-		{
+
+        // Requête pour vérifier si l'email existe déjà dans la table 'compte'
+        $reqVerifEmail = 'SELECT COUNT(*) AS nb FROM compte WHERE mail = ?';
+        $stmtVerifEmail = $monPdo->prepare($reqVerifEmail);
+        $stmtVerifEmail->execute([$email]);
+        $result = $stmtVerifEmail->fetch(PDO::FETCH_ASSOC);
+
+        return ($result['nb'] > 0); // Retourne vrai si l'email existe déjà, sinon faux
+    } catch (PDOException $e) {
+        // En cas d'erreur, affichage du message d'erreur
         print "Erreur !: " . $e->getMessage();
         die();
-		}
-	}
+    }
+}
+
+function creationCompte($nom, $prenom, $email, $mot_de_passe)
+{
+    try 
+    {
+        // Connexion à la base de données
+        $monPdo = connexionPDO();
+
+        // Insertion dans la table client
+        $reqClient = 'INSERT INTO client (nom, prenom) VALUES (?, ?)';
+        $stmtClient = $monPdo->prepare($reqClient);
+        $stmtClient->execute([$nom, $prenom]);
+
+        // Récupération de l'ID du client nouvellement inséré
+        $clientId = $monPdo->lastInsertId();
+
+        // Insertion dans la table compte
+        $mdp = password_hash($mot_de_passe, PASSWORD_DEFAULT);
+        $reqCompte = 'INSERT INTO compte (idCompte, mail, co_password) VALUES (?, ?, ?)';
+        $stmtCompte = $monPdo->prepare($reqCompte);
+        $stmtCompte->execute([$clientId, $email, $mdp]);
+
+        // Vérification si l'insertion a réussi dans la table compte
+        if ($stmtCompte->rowCount() > 0) {
+            echo "Inscription réussie.";
+        } else {
+            echo "Erreur lors de l'inscription.";
+        }
+    } catch (PDOException $e) {
+        // En cas d'erreur, affichage du message d'erreur
+        print "Erreur !: " . $e->getMessage();
+        die();
+    }
+}
 /**
 	function connexionAdmin($usename,$password){
 		try
@@ -218,6 +244,43 @@ function creationCompte($nom,$prenom,$email,$mot_de_passe)
 
 	}
 	**/
+
+function VerifyUt($email)
+{
+    try 
+        {
+        $monPdo = connexionPDO();
+        $stm = $monPdo -> prepare("SELECT co_password, mail FROM compte WHERE mail = ? " );
+        $stm -> bindValue (1,$email);
+        $stm -> execute();
+        $t=$stm->fetchAll();
+        if (count($t)>0){
+            return $t[0];
+        }
+		return null;
+        }  
+        catch (PDOException $e) 
+        {
+        print "Erreur !: " . $e->getMessage();
+        die();
+        }
+}
+function getInfoCompte($email){
+	try 
+	{
+	$monPdo = connexionPDO();
+	$stm = $monPdo -> prepare("SELECT mail,co_password FROM compte WHERE mail = ? " );
+	$stm -> bindValue (1,$email);
+	$stm -> execute();
+	$LG=$stm->fetchAll();
+	return $LG;
+	}  
+	catch (PDOException $e) 
+	{
+	print "Erreur !: " . $e->getMessage();
+	die();
+	}
+}
 ?>
 
 

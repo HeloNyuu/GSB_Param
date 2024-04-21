@@ -6,12 +6,7 @@ body{
 	padding : 0;
 
 }
-#accueil{
-	
-	text-align: center;
-	padding-top: 7%;
-	color: black ;
-}
+
 
 .btn-outline-success{
 	color: white;
@@ -210,3 +205,116 @@ div.imgCard{
 	background-color: #45a049; /* couleur de fond du bouton au survol */
 	text-decoration: none;
   }
+
+  /* Style pour la section des catégories de produits */
+.product-categories-section {
+    padding: 50px 0;
+}
+.product-categories-section h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+.product-categories {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.product-category {
+    flex: 0 0 calc(33.333% - 40px); /* 3 colonnes avec espace entre */
+    text-align: center;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+	position: relative;
+    display: inline-block;
+}
+.product-category img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+.product-category h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+.product-category p {
+    font-size: 1rem;
+}
+.product-category:hover .category-info {
+    opacity: 1;
+}
+.category-info {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+/* Style pour la section d'en-tête */
+.hero-section {
+    position: relative;
+    height: 500px; /* Ajustez la hauteur selon vos besoins */
+    overflow: hidden; /* Cache le texte débordant de l'image */
+}
+
+/* Style pour l'image d'arrière-plan */
+.hero-section img {
+    width: 100%;
+    height: auto;
+    filter: blur(5px); /* Applique un flou à l'image */
+}
+
+/* Style pour le texte en surimpression */
+.hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white; /* Couleur du texte blanc */
+}
+
+/* Style pour le titre */
+.hero-text h1 {
+    font-size: 3rem;
+    font-weight: bold; /* Texte en gras */
+    margin-bottom: 20px;
+}
+
+/* Style pour le sous-titre */
+.hero-text h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+/* Style pour le paragraphe */
+.hero-text p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    border-radius: 5px;
+}
+
+.see-products-box {
+    background-color: white;
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 20px; /* Ajustez selon votre mise en page */
+    border-radius: 5px; /* Pour arrondir les coins */
+}
+.see-products-text {
+    color: #333; /* Couleur de texte plus foncée (par exemple, noir) */
+}

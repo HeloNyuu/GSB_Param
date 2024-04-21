@@ -1,7 +1,7 @@
 <div id="container">
             <!-- zone de connexion -->
             
-            <form  method="POST" action="#">
+            <form  method="POST" action="index.php?uc=gererConnexion&action=Verification">
                 <h1>Connexion</h1>
                 
                 <label><b>Email</b></label>
