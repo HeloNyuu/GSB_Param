@@ -33,6 +33,13 @@ case 'Verification':
         }
     }
     break;
+	case 'deconnexion':
+		{
+			setcookie("connexion",  "", time() - 3600, "/");
+			header("Location: index.php");
+		
+		}
+	break;
 
 	case 'inscription':{
 		include("vues/v_inscription.php");

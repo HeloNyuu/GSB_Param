@@ -25,7 +25,11 @@
           <a class="nav-link active text-light" aria-current="page" href="index.php?uc=gererPanier&action=voirPanier">Voir son panier</a>
         </li>
       </ul>
+
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <?php if ( isset($_COOKIE["connexion"])==NULL)
+      {
+      ?>
         <li class="nav-item">
           <a class="nav-link active text-light" aria-current="page" href="index.php?uc=gererConnexion&action=connexion">Connexion</a>
         </li>
@@ -33,8 +37,13 @@
           <a class="nav-link active text-light" href="index.php?uc=gererConnexion&action=inscription">Inscription</a>
         </li>
         
-        
+        <?php }else { ?>
+          <li class="nav-item">
+          <a class="nav-link active text-light" href="index.php?uc=gererConnexion&action=deconnexion">Déconnexion</a>
+          </li>
+        <?php } ?>
       </ul>
+
     </div>
   </div>
 </nav>

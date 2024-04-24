@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("vues/v_entete.html") ;
+include("vues/v_entete.php") ;
 require_once("modele/fonctions.inc.php");
 require_once("modele/bd.produits.inc.php");
 if(!isset($_REQUEST['uc']))

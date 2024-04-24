@@ -177,6 +177,13 @@ function getErreursSaisieCommande($nom,$rue,$ville,$cp,$mail)
 	return $lesErreurs;
 }
 
+
+/**
+ * Test si le mail existe déjà dans la bdd
+ * @param string $email chaîne testée
+ * @return boolean 
+ * 
+ */
 function emailExiste($email)
 {
     try 
@@ -197,6 +204,15 @@ function emailExiste($email)
         die();
     }
 }
+
+/**
+ * Insert un compte dans la table compte dans la bdd et crée un client dans al table client.
+ * @param string $nom 
+ * @param string $prenom
+ * @param string $email
+ * @param string $mot_de_passe
+ * 
+ */
 
 function creationCompte($nom, $prenom, $email, $mot_de_passe)
 {
@@ -245,6 +261,8 @@ function creationCompte($nom, $prenom, $email, $mot_de_passe)
 	}
 	**/
 
+//Récupère le mdp d'un utilisateur
+
 function VerifyUt($email)
 {
     try 
@@ -255,7 +273,7 @@ function VerifyUt($email)
         $stm -> execute();
         $t=$stm->fetchAll();
         if (count($t)>0){
-            return $t[0];
+            return $t[0]['co_password'];
         }
 		return null;
         }  
@@ -265,6 +283,8 @@ function VerifyUt($email)
         die();
         }
 }
+
+
 function getInfoCompte($email){
 	try 
 	{
@@ -281,6 +301,9 @@ function getInfoCompte($email){
 	die();
 	}
 }
+
+
+//Calcul le total d'une commande
 
 function calculerTotal($produits)
 {
